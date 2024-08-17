@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="container">
+    <div class="row">
+        <h1>{{task.title}}</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+            <button>Create</button>
+        </form>
+        <form action="{% url 'CompleteTask' task.id %}" method="post">
+            {% csrf_token %}
+            <button>Complete</button>
+        </form>
+        <form action="{% url 'DeleteTask' task.id %}" method="post">
+            {% csrf_token %}
+            <button>Borrar</button>
+        </form>
+    </div>
+</main>
+
+{% endblock %}
